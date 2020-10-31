@@ -1,2 +1,3 @@
-# INF1636
-INF1636 - Programação Orientada a Objetos - Trabalho
+# Chess Game
+
+A chess game implemented with Java.
