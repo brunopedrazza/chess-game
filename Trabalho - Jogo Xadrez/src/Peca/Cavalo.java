@@ -1,9 +1,9 @@
-package Peça;
+package Peca;
 
 import java.io.File;
 import javax.imageio.ImageIO;
 
-public class Cavalo extends Peça{
+public class Cavalo extends Peca{
 
 	public Cavalo(int c) {
 		

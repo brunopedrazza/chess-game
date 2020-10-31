@@ -1,15 +1,15 @@
-package Peça;
+package Peca;
 
 import java.awt.*;
 import java.io.*;
 import javax.imageio.*;
 
-public abstract class Peça{
+public abstract class Peca{
 	
 	protected Image img;
-	protected int cor;	// define cor da peça -> 0 para peças brancas, 1 para peças pretas
+	protected int cor;	// define cor da peï¿½a -> 0 para peï¿½as brancas, 1 para peï¿½as pretas
 	
-	public Peça() {
+	public Peca() {
 		
 	}
 	

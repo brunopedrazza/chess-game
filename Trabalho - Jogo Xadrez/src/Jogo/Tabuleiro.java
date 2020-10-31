@@ -1,12 +1,12 @@
 package Jogo;
 
-import Peça.*;
+import Peca.*;
 
 public class Tabuleiro implements Observado{
 	
 	private static Tabuleiro tabuleiro = null;
 	private int[][] casas = new int[8][8];
-	private Peça[][] posicoes = new Peça[8][8];
+	private Peca[][] posicoes = new Peca[8][8];
 	private Regras regras = new Regras(casas,posicoes,this);
 	private Observador obs;
 	private String resultado;
@@ -32,7 +32,7 @@ public class Tabuleiro implements Observado{
 	protected void inicializaTabuleiro() {
 		
 		for(int i=0; i<8; i++) {
-			posicoes[i] = new Peça[8];
+			posicoes[i] = new Peca[8];
 		}
 		
 		posicoes[0][0] = new Torre(1); posicoes[7][0] = new Torre(0);
@@ -49,9 +49,9 @@ public class Tabuleiro implements Observado{
 		for(int i=1; i<7; i++) {
 			for(int j=0; j<8; j++) {
 				if(i == 1)
-					posicoes[i][j] = new Peão(1);
+					posicoes[i][j] = new Peao(1);
 				else if(i == 6)
-					posicoes[i][j] = new Peão(0);
+					posicoes[i][j] = new Peao(0);
 				else
 					posicoes[i][j] = null;
 			}
@@ -61,7 +61,7 @@ public class Tabuleiro implements Observado{
 
 	}
 	
-	public Peça[][] getPeças(){
+	public Peca[][] getPecas(){
 		return this.posicoes;
 	}
 
@@ -71,10 +71,10 @@ public class Tabuleiro implements Observado{
 	
 	public void Recebe_Clique(int i, int j) {
 		
-		if(posicoes[i][j] != null)   	// peça foi selecionada para começar uma jogada
-			regras.Peça_Selecionada(i,j);
+		if(posicoes[i][j] != null)   	// peï¿½a foi selecionada para comeï¿½ar uma jogada
+			regras.Peca_Selecionada(i,j);
 		
-		else if(posicoes[i][j] == null)	// casa vazia foi selecionada após a seleção de uma peça
+		else if(posicoes[i][j] == null)	// casa vazia foi selecionada apï¿½s a seleï¿½ï¿½o de uma peï¿½a
 			regras.Casa_Selecionada(i,j);
 	
 		else							// Nenhum dos casos acima, ignora o clique
@@ -112,7 +112,7 @@ public class Tabuleiro implements Observado{
 
 		String str="";
 
-		for(int i=0; i<8; i++){				// registra posicção das peças
+		for(int i=0; i<8; i++){				// registra posicï¿½ï¿½o das peï¿½as
 			for(int j=0; j<8; j++){
 
 				if(posicoes[i][j] == null)
@@ -148,7 +148,7 @@ public class Tabuleiro implements Observado{
 					else
 						str = str.concat("RE1 ");
 
-				else if(posicoes[i][j] instanceof Peão)
+				else if(posicoes[i][j] instanceof Peao)
 					if(posicoes[i][j].getCor() == 0)
 						str = str.concat("P0 ");
 					else
@@ -156,7 +156,7 @@ public class Tabuleiro implements Observado{
 			}
 		}
 
-		if(regras.vez == 0)				// registra de qual jogador é a vez
+		if(regras.vez == 0)				// registra de qual jogador ï¿½ a vez
 			str = str.concat("V0 ");
 		else
 			str = str.concat("V1 ");
@@ -215,9 +215,9 @@ public class Tabuleiro implements Observado{
 
 					case 'P':{
 						if((s1.charAt(1))=='0')
-							posicoes[i][j] = new Peão(0);
+							posicoes[i][j] = new Peao(0);
 						else
-							posicoes[i][j] = new Peão(1);
+							posicoes[i][j] = new Peao(1);
 						break;
 					}
 

@@ -1,6 +1,6 @@
 package Jogo;
 
-import Peça.*;
+import Peca.*;
 
 public interface Observado {
 	
@@ -10,7 +10,7 @@ public interface Observado {
 	
 	public int[][] getCasas();
 	
-	public Peça[][] getPeças();
+	public Peca[][] getPecas();
 	
 	public String getResultado();
 }

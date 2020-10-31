@@ -3,7 +3,7 @@ package Interface;
 import java.awt.geom.*;
 import java.awt.*;
 import javax.swing.*;
-import Peça.Peça;
+import Peca.Peca;
 import Jogo.Controlador;
 import Jogo.Observado;
 import Jogo.Observador;
@@ -15,11 +15,11 @@ public class XadrezPainel extends JPanel implements Observador{
 	private static XadrezPainel xpainel = null;
 	private Rectangle2D Rect2D = new Rectangle2D.Double();
 	private int larguraCasa, alturaCasa;
-	private int larguraPeça, alturaPeça;
+	private int larguraPeca, alturaPeca;
 	private int posicaoX, posicaoY;
 	private Color cor, casaVerde = new Color(41, 198, 47, 150);
 	private int[][] casas;
-	private Peça[][] pos;
+	private Peca[][] pos;
 	private Observado observado;
 	private TratadorPromocao tratadorPromocao;
 
@@ -29,7 +29,7 @@ public class XadrezPainel extends JPanel implements Observador{
 		observado = Controlador.getObservado();
 	
 		casas = observado.getCasas();
-		pos = observado.getPeças();
+		pos = observado.getPecas();
 		
 		tratadorPromocao = new TratadorPromocao();
 		
@@ -47,8 +47,8 @@ public class XadrezPainel extends JPanel implements Observador{
 		cor = Color.WHITE;
 		larguraCasa = this.getWidth()/8;
 		alturaCasa = this.getHeight()/8;
-		larguraPeça = 11*larguraCasa/20;
-		alturaPeça = 11*alturaCasa/20;
+		larguraPeca = 11*larguraCasa/20;
+		alturaPeca = 11*alturaCasa/20;
 	
 		
 		for(int i=0; i<8; i++) {
@@ -67,7 +67,7 @@ public class XadrezPainel extends JPanel implements Observador{
 				}
 				
 				if(pos[i][j]!=null) {
-					g2d.drawImage(pos[i][j].getImg(), posicaoX+((larguraCasa-larguraPeça)/2), posicaoY+((alturaCasa-alturaPeça)/2), larguraPeça, alturaPeça, null);
+					g2d.drawImage(pos[i][j].getImg(), posicaoX+((larguraCasa-larguraPeca)/2), posicaoY+((alturaCasa-alturaPeca)/2), larguraPeca, alturaPeca, null);
 				}
 				
 				if(cor == Color.WHITE)
@@ -88,7 +88,7 @@ public class XadrezPainel extends JPanel implements Observador{
 	public void notify(Observado o, int i){
 		
 		casas = observado.getCasas();
-		pos = observado.getPeças();
+		pos = observado.getPecas();
 		
 		if(i==1)
 			repaint();
@@ -100,12 +100,12 @@ public class XadrezPainel extends JPanel implements Observador{
 	
 	public void mostraMenuSelecao() {
 		
-		JPopupMenu menu = new JPopupMenu("Promoção de Peão");
+		JPopupMenu menu = new JPopupMenu("Promoï¿½ï¿½o de Peï¿½o");
 		double larguraItem = this.getWidth()/(1.6);
 		double alturaItem = this.getHeight()/(11.7);
 		
 		Font fonte = new Font("SERIF",Font.BOLD, 25);
-		JMenuItem label = new JMenuItem("Seleciona uma peça para promover o Peão:");
+		JMenuItem label = new JMenuItem("Seleciona uma peï¿½a para promover o Peï¿½o:");
 		JRadioButtonMenuItem botTorre = new JRadioButtonMenuItem("Torre");
 		JRadioButtonMenuItem botCavalo = new JRadioButtonMenuItem("Cavalo");
 		JRadioButtonMenuItem botBispo = new JRadioButtonMenuItem("Bispo");

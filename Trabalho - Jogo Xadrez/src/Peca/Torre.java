@@ -1,9 +1,9 @@
-package Peça;
+package Peca;
 
 import java.io.File;
 import javax.imageio.ImageIO;
 
-public class Torre extends Peça{
+public class Torre extends Peca{
 
 	public Torre(int c) {
 		

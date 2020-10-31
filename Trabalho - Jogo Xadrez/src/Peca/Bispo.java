@@ -1,9 +1,9 @@
-package Peça;
+package Peca;
 
 import java.io.File;
 import javax.imageio.ImageIO;
 
-public class Bispo extends Peça{
+public class Bispo extends Peca{
 
 	public Bispo(int c) {
 		

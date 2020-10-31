@@ -1,12 +1,12 @@
-package Peça;
+package Peca;
 
 import java.io.File;
 
 import javax.imageio.ImageIO;
 
-public class Peão extends Peça{
+public class Peao extends Peca{
 	
-	public Peão(int c) {
+	public Peao(int c) {
 		
 		this.cor = c;
 		
